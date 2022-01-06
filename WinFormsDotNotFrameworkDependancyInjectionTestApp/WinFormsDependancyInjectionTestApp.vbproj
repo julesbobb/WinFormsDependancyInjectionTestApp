@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ABA9227B-7663-4EA3-A9B1-ABB81910B662}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WinFormsDotNotFrameworkDependancyInjectionTestApp.My.MyApplication</StartupObject>
-    <RootNamespace>WinFormsDotNotFrameworkDependancyInjectionTestApp</RootNamespace>
-    <AssemblyName>WinFormsDotNotFrameworkDependancyInjectionTestApp</AssemblyName>
+    <StartupObject>WinFormsDependancyInjectionTestApp.My.MyApplication</StartupObject>
+    <RootNamespace>WinFormsDependancyInjectionTestApp</RootNamespace>
+    <AssemblyName>WinFormsDependancyInjectionTestApp</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>WinFormsDotNotFrameworkDependancyInjectionTestApp.xml</DocumentationFile>
+    <DocumentationFile>WinFormsDependancyInjectionTestApp.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>WinFormsDotNotFrameworkDependancyInjectionTestApp.xml</DocumentationFile>
+    <DocumentationFile>WinFormsDependancyInjectionTestApp.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
