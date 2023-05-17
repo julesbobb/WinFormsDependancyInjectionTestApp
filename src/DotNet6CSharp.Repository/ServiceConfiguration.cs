@@ -10,7 +10,7 @@
     public static partial class ServiceConfiguration
     {
 
-        private static IServiceProvider ServiceProvider { get; set; }
+        private static IServiceProvider? ServiceProvider { get; set; }
 
         /// <summary>
         /// Adds the scoped services into the <see cref="ServiceCollection"/>
