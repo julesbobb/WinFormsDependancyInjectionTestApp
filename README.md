@@ -1,6 +1,6 @@
 # WinForms Dependency Injection Example using .NET 7
 
-A simple test app showinig how to use dependancy injection in WinForms for both C# and VB.Net. It is targetting NET 7. 
+A simple test app showinig how to use dependancy injection in WinForms for both C# and VB.Net. It is targetting .NET 7. 
 
 This demostrats several things:
    1)  Injecting a service directly into a form.
