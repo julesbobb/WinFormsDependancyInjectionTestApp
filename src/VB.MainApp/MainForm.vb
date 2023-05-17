@@ -6,6 +6,7 @@ Imports VB.Repository
 '       form load and for user controls
 '   2)  Using the CreateForm. This creates a form where the service is injected into
 '       the initialiaser. This can be used for all forms.
+'   3) Automatically retrieving all forms within a solution and configuring them for DI
 
 Public Class MainForm
 
