@@ -1,11 +1,11 @@
 # WinForms Dependency Injection Example using .NET 7
 
-A simple test app showinig how to use dependancy injection in WinForms for both C# and VB.Net. It is targetting NET 7. 
+A simple test app showinig how to use dependancy injection in WinForms for both C# and VB.Net. It is targetting .NET 7. 
 
-This demostrats several things:
+This demonstrates several things:
    1)  Injecting a service directly into a form.
    2)  Initialising the service manually within the form/user control. This can be used especially on user controls, where the controls are created in the designer.
-   3)  It automatically sets up all forms within the solution to accept injection. This also applies to forms which are outside of the startup application, but are present in other projects within the solution.
+   3)  Automatically setting up all forms within the solution to accept injection. This also applies to forms which are outside of the startup application, but are present in other projects within the solution.
 
 This solution is only applicable to Windows.
 
