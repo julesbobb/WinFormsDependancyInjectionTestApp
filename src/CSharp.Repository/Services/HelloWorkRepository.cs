@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace CSharp.Repository.Services
 {
-    public partial class HelloWorkRepository : IHelloWorkRepository
+    public class HelloWorkRepository : IHelloWorkRepository
     {
-        public string SayHello()
-        {
-            return "Hello World";
-        }
-
+        public string SayHello => "Hello World";
     }
 }

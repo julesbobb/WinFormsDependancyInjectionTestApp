@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CSharp.Repository.Interfaces
 {
-    public partial interface IHelloWorkRepository
+    public interface IHelloWorkRepository
     {
-        string SayHello();
+        string SayHello { get; }
     }
 }
