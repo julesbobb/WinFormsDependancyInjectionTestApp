@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNet6CSharp.Repository.Interfaces
+namespace CSharp.Repository.Interfaces
 {
     public partial interface IHelloWorkRepository
     {

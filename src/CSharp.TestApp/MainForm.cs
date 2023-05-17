@@ -1,7 +1,7 @@
-using DotNet6CSharp.Repository;
-using DotNet6CSharp.Repository.Interfaces;
+using CSharp.Repository;
+using CSharp.Repository.Interfaces;
 
-namespace DotNet6CSharp.TestApp
+namespace CSharp.TestApp
 {
     public partial class MainForm : Form
     {
@@ -13,9 +13,10 @@ namespace DotNet6CSharp.TestApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void bnSayHello_Click(object sender, EventArgs e)
         {
             MessageBox.Show(_repository.SayHello());
         }
+
     }
 }

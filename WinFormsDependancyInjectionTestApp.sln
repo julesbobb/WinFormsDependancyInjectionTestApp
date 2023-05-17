@@ -1,15 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.33516.290
+VisualStudioVersion = 17.5.33103.201
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WinFormsDependancyInjectionTestApp", "src\WinFormsDependancyInjectionTestApp\WinFormsDependancyInjectionTestApp.vbproj", "{ABA9227B-7663-4EA3-A9B1-ABB81910B662}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Repository", "src\Repository\Repository.vbproj", "{1B5F22D6-0C8B-4934-99E5-A66BA3498D75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet6CSharp.Repository", "src\DotNet6CSharp.Repository\DotNet6CSharp.Repository.csproj", "{081C2A91-F5A4-48F5-88CE-C49940CF19A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Repository", "src\CSharp.Repository\CSharp.Repository.csproj", "{081C2A91-F5A4-48F5-88CE-C49940CF19A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet6CSharp.TestApp", "src\DotNet6CSharp.TestApp\DotNet6CSharp.TestApp.csproj", "{91DE0026-8CEC-4CC6-A363-C0FA613693EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.TestApp", "src\CSharp.TestApp\CSharp.TestApp.csproj", "{91DE0026-8CEC-4CC6-A363-C0FA613693EC}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB.TestApp", "src\VB.TestApp\VB.TestApp.vbproj", "{08BF7B91-A67C-44D6-A27B-8830750D8F9E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB.Repository", "src\VB.Repository\VB.Repository.vbproj", "{E0D896FA-5741-40F3-A1B5-0E807E680B15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{91DE0026-8CEC-4CC6-A363-C0FA613693EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91DE0026-8CEC-4CC6-A363-C0FA613693EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91DE0026-8CEC-4CC6-A363-C0FA613693EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08BF7B91-A67C-44D6-A27B-8830750D8F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08BF7B91-A67C-44D6-A27B-8830750D8F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08BF7B91-A67C-44D6-A27B-8830750D8F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08BF7B91-A67C-44D6-A27B-8830750D8F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0D896FA-5741-40F3-A1B5-0E807E680B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0D896FA-5741-40F3-A1B5-0E807E680B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0D896FA-5741-40F3-A1B5-0E807E680B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0D896FA-5741-40F3-A1B5-0E807E680B15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
