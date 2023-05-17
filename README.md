@@ -9,6 +9,8 @@ This demostrats several things:
 
 This solution is only applicable to Windows.
 
+I asked ChatGPT to give me reasons to use DI, and the challanges faced by WinForms. I couldn't have written it better myself.
+
 # Why Depenency Injection?
 
 The benefits of using dependency injection include:
