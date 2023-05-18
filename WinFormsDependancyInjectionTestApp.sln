@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Repository", "src\CS
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB.Repository", "src\VB.Repository\VB.Repository.vbproj", "{B1167B65-D7D5-4239-86FB-D24EDED9A401}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Forms.Data", "src\CSharp.Forms.Data\CSharp.Forms.Data.csproj", "{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B1167B65-D7D5-4239-86FB-D24EDED9A401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1167B65-D7D5-4239-86FB-D24EDED9A401}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1167B65-D7D5-4239-86FB-D24EDED9A401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

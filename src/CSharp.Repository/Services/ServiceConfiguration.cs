@@ -1,7 +1,11 @@
-﻿using CSharp.Repository.Interfaces;
+﻿using CSharp.Forms.Data;
+using CSharp.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +20,15 @@ namespace CSharp.Repository.Services
         /// Adds the scoped services into the <see cref="ServiceCollection"/>
         /// </summary>
         /// <param name="forms"></param>
-        public static void ConfigureServices(List<Type> forms)
+        /// <param name="Configuration"></param>
+        public static void ConfigureServices(List<Type> forms, IConfiguration configuration)
         {
             var services = new ServiceCollection();
             forms?.ForEach(x => services.AddTransient(x));
-
+            services.AddSingleton(configuration);
+            services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase(configuration.GetConnectionString("WinformsDatabase")));
             services.AddScoped<IHelloWorkRepository, HelloWorkRepository>();
+            services.AddScoped<IUsersRepository, UsersRepository>();
             serviceProvider = services.BuildServiceProvider();
         }
 

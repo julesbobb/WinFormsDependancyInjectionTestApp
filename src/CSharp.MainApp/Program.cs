@@ -1,4 +1,5 @@
 using CSharp.Repository.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -16,6 +17,8 @@ namespace CSharp.MainApp
 
     internal static class Program
     {
+        public static IConfiguration Configuration;
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -24,10 +27,15 @@ namespace CSharp.MainApp
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            Configuration = builder.Build();
+
             ApplicationConfiguration.Initialize();
              var forms = GetAllForms();
-            ServiceConfiguration.ConfigureServices(forms);
-            Application.Run(new MainForm());
+            ServiceConfiguration.ConfigureServices(forms, Configuration);
+            Application.Run(ServiceConfiguration.CreateForm<MainForm>());
         }
 
         #region Forms

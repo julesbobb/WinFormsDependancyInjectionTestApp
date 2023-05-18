@@ -11,9 +11,9 @@ namespace CSharp.MainApp
     {
         private readonly IHelloWorkRepository _repository;
 
-        public MainForm()
+        public MainForm(IHelloWorkRepository repository)
         {
-            _repository = ServiceConfiguration.GetProviderService<IHelloWorkRepository>();
+            _repository = repository;
             InitializeComponent();
         }
 

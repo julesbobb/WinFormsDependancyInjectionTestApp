@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CSharp.Forms.Data\CSharp.Forms.Data.csproj" />
     <ProjectReference Include="..\CSharp.Repository\CSharp.Repository.csproj" />
   </ItemGroup>
 
