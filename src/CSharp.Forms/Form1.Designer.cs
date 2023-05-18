@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            bnSayHello = new Button();
             bnAddUser = new Button();
             tbUserName = new TextBox();
             dataGridView1 = new DataGridView();
@@ -37,21 +36,10 @@
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             userBindingSource = new BindingSource(components);
             bnRefresh = new Button();
+            userControl11 = new UserControl1();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
-            // 
-            // bnSayHello
-            // 
-            bnSayHello.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            bnSayHello.Location = new Point(487, 12);
-            bnSayHello.Margin = new Padding(3, 4, 3, 4);
-            bnSayHello.Name = "bnSayHello";
-            bnSayHello.Size = new Size(233, 52);
-            bnSayHello.TabIndex = 0;
-            bnSayHello.Text = "Say Hello";
-            bnSayHello.UseVisualStyleBackColor = true;
-            bnSayHello.Click += bnSayHello_Click;
             // 
             // bnAddUser
             // 
@@ -81,11 +69,11 @@
             dataGridView1.Location = new Point(12, 42);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 33;
             dataGridView1.Size = new Size(349, 302);
             dataGridView1.TabIndex = 3;
-            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             dataGridView1.UserDeletingRow += dataGridView1_UserDeletingRow;
             // 
             // idDataGridViewTextBoxColumn
@@ -94,6 +82,7 @@
             idDataGridViewTextBoxColumn.HeaderText = "Id";
             idDataGridViewTextBoxColumn.MinimumWidth = 8;
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -101,6 +90,7 @@
             nameDataGridViewTextBoxColumn.HeaderText = "Name";
             nameDataGridViewTextBoxColumn.MinimumWidth = 8;
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // userBindingSource
             // 
@@ -116,16 +106,23 @@
             bnRefresh.UseVisualStyleBackColor = true;
             bnRefresh.Click += bnRefresh_Click;
             // 
+            // userControl11
+            // 
+            userControl11.Location = new Point(385, 42);
+            userControl11.Name = "userControl11";
+            userControl11.Size = new Size(335, 206);
+            userControl11.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(733, 383);
+            Controls.Add(userControl11);
             Controls.Add(bnRefresh);
             Controls.Add(dataGridView1);
             Controls.Add(tbUserName);
             Controls.Add(bnAddUser);
-            Controls.Add(bnSayHello);
             Name = "Form1";
             Padding = new Padding(10);
             StartPosition = FormStartPosition.CenterParent;
@@ -137,8 +134,6 @@
         }
 
         #endregion
-
-        private Button bnSayHello;
         private Button bnAddUser;
         private TextBox tbUserName;
         private DataGridView dataGridView1;
@@ -146,5 +141,6 @@
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private BindingSource userBindingSource;
         private Button bnRefresh;
+        private UserControl1 userControl11;
     }
 }
