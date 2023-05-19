@@ -1,6 +1,11 @@
+using CSharp.Forms.Data;
+using CSharp.Repository.Interfaces;
 using CSharp.Repository.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System.Configuration;
 using System.Reflection;
 
 namespace CSharp.MainApp
@@ -17,7 +22,6 @@ namespace CSharp.MainApp
 
     internal static class Program
     {
-        public static IConfiguration Configuration;
 
         /// <summary>
         ///  The main entry point for the application.
@@ -29,60 +33,91 @@ namespace CSharp.MainApp
             // see https://aka.ms/applicationconfiguration.
 
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            Configuration = builder.Build();
+                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            var configuration = builder.Build();
+
+            var services = new ServiceCollection();
+            // find all forms in the solution and add them to the ServiceCollection
+            var forms = GetAllForms();
+            forms?.ForEach(x => services.AddTransient(x));
+
+            services
+                .AddSingleton<IConfiguration>(configuration)
+                .AddDbContext<DataContext>(options => options.UseInMemoryDatabase(configuration.GetConnectionString("WinformsDatabase")))
+                .AddSingleton<IFormFactory, FormFactory>()
+                .AddScoped<IHelloWorkRepository, HelloWorkRepository>()
+                .AddScoped<IUsersRepository, UsersRepository>()
+                .AddLogging(configure => configure.AddConsole());
+
+            // Create the DI container
+            var serviceProvider = services.BuildServiceProvider();
+            ServiceLocator.SetServiceProvider(serviceProvider);
 
             ApplicationConfiguration.Initialize();
-             var forms = GetAllForms();
-            ServiceConfiguration.ConfigureServices(forms, Configuration);
-            Application.Run(ServiceConfiguration.CreateForm<MainForm>());
+
+            var mainForm = serviceProvider.GetRequiredService<MainForm>();
+            Application.Run(mainForm);
+
+
         }
 
         #region Forms
-        
-        /// <summary>
-        /// Gets a list of all forms that are used by the solution, including those within other projects 
-        /// that are referenced. They then used to set up dependency injection
-        /// </summary>
         private static List<Type> GetAllForms()
         {
-            // Get a list of all the forms in the solution
-            var forms = new List<Type>();
+            var solutionDir = Path.GetDirectoryName(Application.StartupPath);
+            var assemblyFiles = Directory.GetFiles(solutionDir, "*.dll", SearchOption.AllDirectories);
 
-            // Add the forms from the current assembly
-            forms.AddRange(GetFormTypes(Assembly.GetExecutingAssembly()));
+            var forms = assemblyFiles
+                .Select(Assembly.LoadFrom)
+                .SelectMany(a => a.GetTypes())
+                .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(Form)))
+                .ToList();
 
-            // Add forms from all the referenced assemblies that belong to the solution
-            foreach (var assemblyName in Assembly.GetExecutingAssembly().GetReferencedAssemblies())
-            {
-                // Load the referenced assembly
-                var _assembly = Assembly.Load(assemblyName);
-                // Check if the assembly belongs to the solution
-                if (IsAssemblyInSolution(_assembly))
-                {
-                    // Add the forms from the assembly
-                    forms.AddRange(GetFormTypes(_assembly));
-                }
-            }
             return forms;
         }
+        ///// <summary>
+        ///// Gets a list of all forms that are used by the solution, including those within other projects 
+        ///// that are referenced. They then used to set up dependency injection
+        ///// </summary>
+        //private static List<Type> GetAllForms()
+        //{
+        //    // Get a list of all the forms in the solution
+        //    var forms = new List<Type>();
 
-        // Returns true if the assembly belongs to the solution
-        private static bool IsAssemblyInSolution(Assembly assembly)
-        {
-            // Get the solution directory
-            var solutionDir = Path.GetDirectoryName(Application.StartupPath);
-            // Get the assembly directory
-            string assemblyDir = Path.GetDirectoryName(assembly.Location);
-            // Check if the assembly directory is a subdirectory of the solution directory
-            return assemblyDir.StartsWith(solutionDir, StringComparison.OrdinalIgnoreCase);
-        }
+        //    // Add the forms from the current assembly
+        //    forms.AddRange(GetFormTypes(Assembly.GetExecutingAssembly()));
 
-        // Returns a list of all the form types in the assembly
-        private static List<Type> GetFormTypes(Assembly assembly)
-        {
-            return assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(Form))).ToList();
-        }
+        //    // Add forms from all the referenced assemblies that belong to the solution
+        //    foreach (var assemblyName in Assembly.GetExecutingAssembly().GetReferencedAssemblies())
+        //    {
+        //        // Load the referenced assembly
+        //        var _assembly = Assembly.Load(assemblyName);
+        //        // Check if the assembly belongs to the solution
+        //        if (IsAssemblyInSolution(_assembly))
+        //        {
+        //            // Add the forms from the assembly
+        //            forms.AddRange(GetFormTypes(_assembly));
+        //        }
+        //    }
+        //    return forms;
+        //}
+
+        //// Returns true if the assembly belongs to the solution
+        //private static bool IsAssemblyInSolution(Assembly assembly)
+        //{
+        //    // Get the solution directory
+        //    var solutionDir = Path.GetDirectoryName(Application.StartupPath);
+        //    // Get the assembly directory
+        //    string assemblyDir = Path.GetDirectoryName(assembly.Location);
+        //    // Check if the assembly directory is a subdirectory of the solution directory
+        //    return assemblyDir.StartsWith(solutionDir, StringComparison.OrdinalIgnoreCase);
+        //}
+
+        //// Returns a list of all the form types in the assembly
+        //private static List<Type> GetFormTypes(Assembly assembly)
+        //{
+        //    return assembly.GetTypes().Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(Form))).ToList();
+        //}
         #endregion
 
     }

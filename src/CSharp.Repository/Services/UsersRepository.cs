@@ -1,18 +1,11 @@
 ﻿using CSharp.Forms.Data;
-using CSharp.Forms.Data.Models;
 using CSharp.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using User = CSharp.Forms.Data.Models.User;
 
 namespace CSharp.Repository.Services
 {
-    internal class UsersRepository : IUsersRepository
+    public class UsersRepository : IUsersRepository
     {
         private readonly DataContext _dataContext;
 
