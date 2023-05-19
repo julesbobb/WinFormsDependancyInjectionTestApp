@@ -7,13 +7,13 @@ namespace CSharp.Forms
     public partial class Form1 : Form
     {
 
-        private readonly IUsersRepository _dbContext;
+        private readonly IUsersRepository _userRepository;
         private readonly ILogger _logger;
 
         public Form1(IUsersRepository usersRepository, ILogger<Form1> logger)
         {
             _logger = logger;
-            _dbContext = usersRepository;
+            _userRepository = usersRepository;
 
             InitializeComponent();
         }
@@ -28,15 +28,15 @@ namespace CSharp.Forms
             string userName = tbUserName.Text;
             if (userName.Length > 0)
             {
-                if (await _dbContext.UserExists(userName))
+                if (await _userRepository.UserExists(userName))
                 {
                     _logger.LogError($"User {userName} already exists");
                     MessageBox.Show($"User {userName} already exists");
                 }
                 else
                 {
-                    await _dbContext.Add(new Data.Models.User(userName));
-                    userBindingSource.DataSource = await _dbContext.GetAll();
+                    await _userRepository.Add(new Data.Models.User(userName));
+                    userBindingSource.DataSource = await _userRepository.GetAll();
                     _logger.LogInformation($"Added user {userName}");
                     tbUserName.Clear();
                     tbUserName.Focus();
@@ -56,14 +56,14 @@ namespace CSharp.Forms
             if (e.Row?.DataBoundItem != null)
             {
                 User item = (User)e.Row.DataBoundItem;
-                await _dbContext.Delete(item);
+                await _userRepository.Delete(item);
                 _logger.LogWarning($"Deleted user {item.Name}");
             }
         }
 
         private async void bnRefresh_Click(object sender, EventArgs e)
         {
-            userBindingSource.DataSource = await _dbContext.GetAll();
+            userBindingSource.DataSource = await _userRepository.GetAll();
         }
     }
 }
