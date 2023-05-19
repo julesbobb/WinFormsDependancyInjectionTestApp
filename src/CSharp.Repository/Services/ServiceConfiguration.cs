@@ -3,6 +3,7 @@ using CSharp.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -25,10 +26,12 @@ namespace CSharp.Repository.Services
         {
             var services = new ServiceCollection();
             forms?.ForEach(x => services.AddTransient(x));
-            services.AddSingleton(configuration);
-            services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase(configuration.GetConnectionString("WinformsDatabase")));
-            services.AddScoped<IHelloWorkRepository, HelloWorkRepository>();
-            services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddSingleton(configuration)
+                .AddDbContext<DataContext>(options => options.UseInMemoryDatabase(configuration.GetConnectionString("WinformsDatabase")))
+                .AddScoped<IHelloWorkRepository, HelloWorkRepository>()
+                .AddScoped<IUsersRepository, UsersRepository>()
+                .AddLogging(configure => configure.AddConsole());
+
             serviceProvider = services.BuildServiceProvider();
         }
 

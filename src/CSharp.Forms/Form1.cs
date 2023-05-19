@@ -1,5 +1,6 @@
 ﻿using CSharp.Forms.Data.Models;
 using CSharp.Repository.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace CSharp.Forms
 {
@@ -7,9 +8,11 @@ namespace CSharp.Forms
     {
 
         private readonly IUsersRepository _dbContext;
+        private readonly ILogger _logger;
 
-        public Form1(IUsersRepository usersRepository)
+        public Form1(IUsersRepository usersRepository, ILogger<Form1> logger)
         {
+            _logger = logger;
             _dbContext = usersRepository;
 
             InitializeComponent();
@@ -27,12 +30,14 @@ namespace CSharp.Forms
             {
                 if (await _dbContext.UserExists(userName))
                 {
+                    _logger.LogError($"User {userName} already exists");
                     MessageBox.Show($"User {userName} already exists");
                 }
                 else
                 {
                     await _dbContext.Add(new Data.Models.User(userName));
                     userBindingSource.DataSource = await _dbContext.GetAll();
+                    _logger.LogInformation($"Added user {userName}");
                     tbUserName.Clear();
                     tbUserName.Focus();
                 }
@@ -49,7 +54,11 @@ namespace CSharp.Forms
         private async void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             if (e.Row?.DataBoundItem != null)
-                await _dbContext.Delete((User)e.Row.DataBoundItem);
+            {
+                User item = (User)e.Row.DataBoundItem;
+                await _dbContext.Delete(item);
+                _logger.LogWarning($"Deleted user {item.Name}");
+            }
         }
 
         private async void bnRefresh_Click(object sender, EventArgs e)
