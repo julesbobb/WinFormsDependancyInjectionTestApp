@@ -11,11 +11,9 @@ namespace CSharp.MainApp
     public partial class MainForm : Form
     {
         private readonly IHelloWorkRepository _repository;
-        private readonly ILogger _logger;
 
-        public MainForm(IHelloWorkRepository repository, ILogger<MainForm> logger)
+        public MainForm(IHelloWorkRepository repository)
         {
-            _logger = logger;
             _repository = repository;
             InitializeComponent();
         }
