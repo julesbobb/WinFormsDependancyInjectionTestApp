@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\VB.Forms.Data\VB.Forms.Data.vbproj" />
+    <ProjectReference Include="..\VB.Forms.Data\VB.Forms.Data.vbproj" />
   </ItemGroup>
 
 </Project>

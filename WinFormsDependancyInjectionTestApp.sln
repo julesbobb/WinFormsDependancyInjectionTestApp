@@ -17,7 +17,7 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "VB.Repository", "src\VB.Rep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Forms.Data", "src\CSharp.Forms.Data\CSharp.Forms.Data.csproj", "{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB.Forms.Data", "VB.Forms.Data\VB.Forms.Data.vbproj", "{5CF4ABA1-8791-4A0B-8343-514E01DCBDEE}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB.Forms.Data", "src\VB.Forms.Data\VB.Forms.Data.vbproj", "{5CF4ABA1-8791-4A0B-8343-514E01DCBDEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

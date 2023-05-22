@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\VB.Forms.Data\VB.Forms.Data.vbproj" />
+    <ProjectReference Include="..\VB.Forms.Data\VB.Forms.Data.vbproj" />
     <ProjectReference Include="..\VB.Repository\VB.Repository.vbproj" />
   </ItemGroup>
 
