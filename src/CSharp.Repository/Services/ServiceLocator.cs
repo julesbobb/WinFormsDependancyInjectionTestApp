@@ -3,21 +3,21 @@
 
     public static class ServiceLocator
     {
-        private static IServiceProvider? _serviceProvider;
+        public static IServiceProvider? ServiceProvider;
 
         public static void SetServiceProvider(IServiceProvider serviceProvider)
         {
-            _serviceProvider = serviceProvider;
+            ServiceProvider = serviceProvider;
         }
 
         public static T? GetService<T>() where T : class
         {
-            if (_serviceProvider == null)
+            if (ServiceProvider == null)
             {
                 throw new InvalidOperationException("Service provider is not set.");
             }
 
-            return _serviceProvider.GetService(typeof(T)) as T;
+            return ServiceProvider.GetService(typeof(T)) as T;
         }
     }
 }

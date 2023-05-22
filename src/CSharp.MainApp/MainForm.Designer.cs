@@ -28,52 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            bnSayHello = new Button();
             bnOpenForm = new Button();
+            userControl11 = new Forms.UserControl1();
             SuspendLayout();
-            // 
-            // bnSayHello
-            // 
-            bnSayHello.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            bnSayHello.Location = new Point(11, 13);
-            bnSayHello.Margin = new Padding(3, 4, 3, 4);
-            bnSayHello.Name = "bnSayHello";
-            bnSayHello.Size = new Size(214, 125);
-            bnSayHello.TabIndex = 0;
-            bnSayHello.Text = "Say Hello";
-            bnSayHello.UseVisualStyleBackColor = true;
-            bnSayHello.Click += bnSayHello_Click;
             // 
             // bnOpenForm
             // 
             bnOpenForm.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            bnOpenForm.Location = new Point(231, 13);
+            bnOpenForm.Location = new Point(264, 16);
             bnOpenForm.Margin = new Padding(3, 4, 3, 4);
             bnOpenForm.Name = "bnOpenForm";
-            bnOpenForm.Size = new Size(214, 125);
+            bnOpenForm.Size = new Size(244, 174);
             bnOpenForm.TabIndex = 1;
             bnOpenForm.Text = "Open Referenced Form";
             bnOpenForm.UseVisualStyleBackColor = true;
             bnOpenForm.Click += bnOpenForm_Click;
             // 
+            // userControl11
+            // 
+            userControl11.Location = new Point(14, 16);
+            userControl11.Name = "userControl11";
+            userControl11.Size = new Size(244, 174);
+            userControl11.TabIndex = 2;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(453, 152);
+            ClientSize = new Size(528, 206);
+            Controls.Add(userControl11);
             Controls.Add(bnOpenForm);
-            Controls.Add(bnSayHello);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MainForm";
             Padding = new Padding(11, 13, 11, 13);
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "C# Application";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button bnSayHello;
         private Button bnOpenForm;
+        private Forms.UserControl1 userControl11;
     }
 }

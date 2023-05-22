@@ -23,45 +23,44 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         bnOpenForm = New Button()
-        bnSayHello = New Button()
+        UserControl11 = New Forms.UserControl1()
         SuspendLayout()
         ' 
         ' bnOpenForm
         ' 
         bnOpenForm.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point)
-        bnOpenForm.Location = New Point(232, 13)
+        bnOpenForm.Location = New Point(264, 16)
         bnOpenForm.Margin = New Padding(3, 4, 3, 4)
         bnOpenForm.Name = "bnOpenForm"
-        bnOpenForm.Size = New Size(214, 125)
+        bnOpenForm.Size = New Size(244, 174)
         bnOpenForm.TabIndex = 3
         bnOpenForm.Text = "Open Referenced Form"
         bnOpenForm.UseVisualStyleBackColor = True
         ' 
-        ' bnSayHello
+        ' UserControl11
         ' 
-        bnSayHello.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point)
-        bnSayHello.Location = New Point(12, 13)
-        bnSayHello.Margin = New Padding(3, 4, 3, 4)
-        bnSayHello.Name = "bnSayHello"
-        bnSayHello.Size = New Size(214, 125)
-        bnSayHello.TabIndex = 2
-        bnSayHello.Text = "Say Hello"
-        bnSayHello.UseVisualStyleBackColor = True
+        UserControl11.Location = New Point(14, 16)
+        UserControl11.Name = "UserControl11"
+        UserControl11.Size = New Size(244, 174)
+        UserControl11.TabIndex = 4
         ' 
         ' MainForm
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(453, 152)
+        ClientSize = New Size(528, 206)
+        Controls.Add(UserControl11)
         Controls.Add(bnOpenForm)
-        Controls.Add(bnSayHello)
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        MaximizeBox = False
+        MinimizeBox = False
         Name = "MainForm"
         Padding = New Padding(11, 13, 11, 13)
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Form1"
+        Text = "VB.Net Application"
         ResumeLayout(False)
     End Sub
 
     Private WithEvents bnOpenForm As Button
-    Private WithEvents bnSayHello As Button
+    Friend WithEvents UserControl11 As Forms.UserControl1
 End Class

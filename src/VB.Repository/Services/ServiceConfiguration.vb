@@ -1,40 +1,52 @@
 ﻿
+Imports System.Configuration
 Imports System.Windows.Forms
+Imports Microsoft.EntityFrameworkCore
+Imports Microsoft.Extensions.Configuration
 Imports Microsoft.Extensions.DependencyInjection
+Imports Microsoft.Extensions.Logging
+Imports VB.Forms.Data.VB.Forms.Data
+Imports VB.Repository.VB.Repository.Interfaces
 
-''' <summary>
-''' A module containing the <see cref="ServiceCollection"/> used for dependency injection, throughout the application
-''' </summary>
-Public Module ServiceConfiguration
-
-    Private Property ServiceProvider As IServiceProvider
+Namespace VB.Repository.Services
 
     ''' <summary>
-    ''' Adds the scoped services into the <see cref="ServiceCollection"/>
+    ''' A module containing the <see cref="ServiceCollection"/> used for dependency injection, throughout the application
     ''' </summary>
-    ''' <param name="forms"></param>
-    Public Sub ConfigureServices(forms As List(Of Type))
-        Dim services As New ServiceCollection()
-        forms?.ForEach(Sub(form)
-                           services.AddTransient(form)
-                       End Sub)
+    Public Module ServiceConfiguration
 
-        services.AddScoped(Of IHelloWorkRepository, HelloWorkRepository)
-        ServiceProvider = services.BuildServiceProvider()
-    End Sub
+        Private Property ServiceProvider As IServiceProvider
 
-    ''' <summary>
-    ''' Returns a new instance of the scoped service associated with type <typeparamref name="T"/>
-    ''' </summary>
-    ''' <typeparam name="T"></typeparam>
-    ''' <returns></returns>
-    Public Function GetProviderService(Of T As Class)() As T
-        Return ServiceProvider.GetService(GetType(T))
-    End Function
+        ''' <summary>
+        ''' Adds the scoped services into the <see cref="ServiceCollection"/>
+        ''' </summary>
+        ''' <param name="forms"></param>
+        Public Sub ConfigureServices(forms As List(Of Type))
 
-    Public Function CreateForm(Of T As Form)() As T
-        If ServiceProvider Is Nothing Then Return Nothing
-        Return ServiceProvider.GetService(Of T)()
-    End Function
+            Dim builder = New ConfigurationBuilder().
+            AddJsonFile("appsettings.json", [optional]:=True, reloadOnChange:=True)
 
-End Module
+            Dim configuration = builder.Build()
+            Dim services As New ServiceCollection()
+
+            'find all forms in the solution and add them to the ServiceCollection
+
+            forms?.ForEach(Sub(form)
+                               services.AddTransient(form)
+                           End Sub)
+            services.
+            AddSingleton(Of IConfiguration)(configuration).
+            AddDbContext(Of DataContext)(Function(options As DbContextOptionsBuilder) options.UseInMemoryDatabase(configuration.GetConnectionString("WinformsDatabase"))).
+            AddSingleton(Of IFormFactory, FormFactory)().
+            AddScoped(Of IHelloWorkRepository, HelloWorkRepository)().
+            AddScoped(Of IUsersRepository, UsersRepository)().
+            AddLogging(Function(configure) configure.AddDebug())
+            Dim serviceProvider = services.BuildServiceProvider()
+            SetServiceProvider(serviceProvider)
+        End Sub
+
+    End Module
+
+End Namespace
+
+

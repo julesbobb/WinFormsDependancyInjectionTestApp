@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CSharp.Forms.Data\CSharp.Forms.Data.csproj" />
     <ProjectReference Include="..\CSharp.Repository\CSharp.Repository.csproj" />
+    <ProjectReference Include="..\VB.Forms\VB.Forms.vbproj" />
   </ItemGroup>
 
 </Project>

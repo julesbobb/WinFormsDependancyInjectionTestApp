@@ -36,7 +36,6 @@
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             userBindingSource = new BindingSource(components);
             bnRefresh = new Button();
-            userControl11 = new UserControl1();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
@@ -106,19 +105,11 @@
             bnRefresh.UseVisualStyleBackColor = true;
             bnRefresh.Click += bnRefresh_Click;
             // 
-            // userControl11
-            // 
-            userControl11.Location = new Point(385, 42);
-            userControl11.Name = "userControl11";
-            userControl11.Size = new Size(335, 206);
-            userControl11.TabIndex = 5;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(733, 383);
-            Controls.Add(userControl11);
+            ClientSize = new Size(378, 383);
             Controls.Add(bnRefresh);
             Controls.Add(dataGridView1);
             Controls.Add(tbUserName);

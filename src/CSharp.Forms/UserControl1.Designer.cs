@@ -33,11 +33,13 @@
             // 
             // bnSayHello
             // 
-            bnSayHello.Location = new Point(74, 35);
+            bnSayHello.Dock = DockStyle.Fill;
+            bnSayHello.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            bnSayHello.Location = new Point(0, 0);
             bnSayHello.Name = "bnSayHello";
-            bnSayHello.Size = new Size(213, 114);
-            bnSayHello.TabIndex = 0;
-            bnSayHello.Text = "Say Hello";
+            bnSayHello.Size = new Size(221, 159);
+            bnSayHello.TabIndex = 1;
+            bnSayHello.Text = "User Control";
             bnSayHello.UseVisualStyleBackColor = true;
             bnSayHello.Click += bnSayHello_Click;
             // 
@@ -47,12 +49,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(bnSayHello);
             Name = "UserControl1";
-            Size = new Size(383, 205);
+            Size = new Size(221, 159);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button bnSayHello;
+        internal Button bnSayHello;
     }
 }

@@ -10,7 +10,9 @@ namespace CSharp.Forms
 
         public UserControl1()
         {
-            _repository = ServiceLocator.GetService<IHelloWorkRepository>();
+            if (ServiceLocator.ServiceProvider != null)
+                _repository = ServiceLocator.GetService<IHelloWorkRepository>();
+            
             InitializeComponent();
         }
 

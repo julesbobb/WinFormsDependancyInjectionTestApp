@@ -5,19 +5,12 @@ namespace CSharp.MainApp
 {
     public partial class MainForm : Form
     {
-        private readonly IHelloWorkRepository _repository;
         private readonly IFormFactory _formFactory;
 
-        public MainForm(IHelloWorkRepository repository, IFormFactory formFactory)
+        public MainForm(IFormFactory formFactory)
         {
             _formFactory = formFactory;
-            _repository = repository;
             InitializeComponent();
-        }
-
-        private void bnSayHello_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(_repository.SayHello);
         }
 
         private void bnOpenForm_Click(object sender, EventArgs e)

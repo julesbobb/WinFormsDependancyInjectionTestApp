@@ -12,7 +12,7 @@ namespace CSharp.MainApp
 
     /*
      * This demostrats 3 things:
-     *    1)  Generating the service using the GetProviderService, this can be used for the initial 
+     *    1)  Generating the service using the GetService, this can be used for the initial 
      *    form load and for user controls
      *    2) Using the CreateForm. This creates a form where the service is injected into
      *    the initialiaser. This can be used for all forms that are in other libraries.

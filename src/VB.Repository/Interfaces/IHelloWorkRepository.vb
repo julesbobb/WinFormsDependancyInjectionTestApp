@@ -1,4 +1,12 @@
-﻿Public Interface IHelloWorkRepository
-    ReadOnly Property SayHello As String
+﻿
+Namespace VB.Repository.Interfaces
 
-End Interface
+    Public Interface IHelloWorkRepository
+        ReadOnly Property SayHello As String
+
+    End Interface
+
+
+End Namespace
+
+

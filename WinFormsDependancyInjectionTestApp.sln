@@ -11,11 +11,13 @@ Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "VB.Forms", "src\VB.Forms\VB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Forms", "src\CSharp.Forms\CSharp.Forms.csproj", "{B555F495-D1B2-4CE3-B6F7-EE5441B776F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Repository", "src\CSharp.Repository\CSharp.Repository.csproj", "{9B70997E-878D-4E03-A8C1-CD65E5E02E2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Repository", "src\CSharp.Repository\CSharp.Repository.csproj", "{9B70997E-878D-4E03-A8C1-CD65E5E02E2C}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB.Repository", "src\VB.Repository\VB.Repository.vbproj", "{B1167B65-D7D5-4239-86FB-D24EDED9A401}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "VB.Repository", "src\VB.Repository\VB.Repository.vbproj", "{B1167B65-D7D5-4239-86FB-D24EDED9A401}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Forms.Data", "src\CSharp.Forms.Data\CSharp.Forms.Data.csproj", "{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Forms.Data", "src\CSharp.Forms.Data\CSharp.Forms.Data.csproj", "{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB.Forms.Data", "VB.Forms.Data\VB.Forms.Data.vbproj", "{5CF4ABA1-8791-4A0B-8343-514E01DCBDEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B5D3BE6-731B-4E95-84AF-E1BC25AAB232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF4ABA1-8791-4A0B-8343-514E01DCBDEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF4ABA1-8791-4A0B-8343-514E01DCBDEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF4ABA1-8791-4A0B-8343-514E01DCBDEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF4ABA1-8791-4A0B-8343-514E01DCBDEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

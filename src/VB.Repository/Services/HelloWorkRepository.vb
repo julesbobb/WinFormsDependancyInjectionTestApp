@@ -1,10 +1,18 @@
-﻿Public Class HelloWorkRepository
-    Implements IHelloWorkRepository
+﻿Imports Microsoft.Extensions.DependencyInjection
+Imports VB.Repository.VB.Repository.Interfaces
 
-    Public ReadOnly Property SayHello As String Implements IHelloWorkRepository.SayHello
-        Get
-            Return "Hello World"
-        End Get
-    End Property
+Namespace VB.Repository.Services
 
-End Class
+    Public Class HelloWorkRepository
+        Implements IHelloWorkRepository
+
+        Public ReadOnly Property SayHello As String Implements IHelloWorkRepository.SayHello
+            Get
+                Return "Hello World"
+            End Get
+        End Property
+
+    End Class
+
+End Namespace
+
